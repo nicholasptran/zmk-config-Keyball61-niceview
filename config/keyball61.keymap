@@ -26,6 +26,28 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        csharp_lambda {
+            bindings = <&csharp_lambda>;
+            key-positions = <11 54>;
+            layers = <0>;
+        };
+    };
+
+    macros {
+        csharp_lambda: csharp_lambda {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp SPACE &kp EQUAL &kp GT &kp SPACE>;
+
+            label = "CSHARP_LAMBDA";
+            wait-ms = <30>;
+            tap-ms = <30>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -54,7 +76,7 @@
         scroll_layer {
             label = "SCROLL";
             bindings = <
-&trans             &kp F1         &kp F2     &kp F3        &kp F4        &kp F5                         &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans             &kp F1         &kp F2     &kp F3        &kp F4        &mt LS(F5) F5                  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
 &trans             &kp LS(UNDER)  &kp LC(W)  &kp LS(LBRC)  &kp LS(RBRC)  &kp LC(LS(T))                  &trans  &kp N7  &kp N8  &kp N9  &trans   &kp F12
 &kp LC(BACKSPACE)  &kp LC(A)      &kp LC(S)  &trans        &trans        &trans                         &trans  &kp N4  &kp N5  &kp N6  &trans   &trans
 &trans             &kp LC(Z)      &kp LC(X)  &kp LC(C)     &kp LC(V)     &trans         &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &trans   &trans
@@ -64,11 +86,11 @@
 
         arrow_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &kp UP    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mo 4   &trans  &trans                                 &trans  &trans
+&trans       &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans     &trans  &trans
+&trans       &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &kp UP    &trans     &trans  &trans
+&trans       &trans  &trans  &trans  &trans  &trans                  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
+&sys_reset   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans  &sys_reset
+&bootloader  &trans  &trans  &trans  &trans  &trans  &mo 4   &trans  &trans                                 &trans  &bootloader
             >;
 
             label = "ARROW";
