@@ -40,8 +40,7 @@
         csharp_lambda: csharp_lambda {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp SPACE &kp EQUAL &kp GT &kp SPACE>;
-
+            bindings = <&kp SPACE &kp EQUAL &kp GT &kp SPACE>;
             label = "CSHARP_LAMBDA";
             wait-ms = <30>;
             tap-ms = <30>;
